@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Patria Maritim | Product | Product Group | Tug Boat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="application-name" content="Patria Maritim">
+        <meta name="description" content="Patria maritim perkasa provide lifecycle ship design-building solutions to enhance the business of our customers, whilst creating better design that benefit both the customer and the environment.">
+        <link rel="icon" href="asset/img/ico.gif">
+        <link rel="stylesheet" href="asset/css/960.css"/>
+        <link rel="stylesheet" href="asset/css/constant.css"/>
+        <link rel="stylesheet" href="asset/css/style.css"/>
+        <!--Photo Gallery-->
+        <link rel="stylesheet" href="asset/css/galleriffic.css"/>
+        <script src="asset/js/jquery-1.3.2.js"></script>
+        <script src="asset/js/jquery.galleriffic.js"></script>
+        <script src="asset/js/jquery.opacityrollover.js"></script>
+        <script>
+            document.write('<style>.noscript { display: none; }</style>');
+        </script>
+        <script>
+            jQuery(document).ready(function($) {
+                // We only want these styles applied when javascript is enabled
+                $('div.navigation').css({'width': '290px', 'float': 'left', 'opacity': '1', 'position': 'relative', 'top': '-10px'});
+                $('div.content_slide').css('display', 'block');
+                // Initially set opacity on thumbs and add
+                // additional styling for hover effect on thumbs
+                var onMouseOutOpacity = 0.67;
+                $('#thumbs ul.thumbs li').opacityrollover({
+                    mouseOutOpacity: onMouseOutOpacity,
+                    mouseOverOpacity: 1.0,
+                    fadeSpeed: 'fast',
+                    exemptionSelector: '.selected'
+                });
+                // Initialize Advanced Galleriffic Gallery
+                var gallery = $('#thumbs').galleriffic({
+                    delay: 2500,
+                    numThumbs: 20,
+                    preloadAhead: 10,
+                    enableTopPager: true,
+                    enableBottomPager: true,
+                    maxPagesToShow: 0,
+                    imageContainerSel: '#slideshow',
+                    controlsContainerSel: '#controls',
+                    captionContainerSel: '#caption',
+                    loadingContainerSel: '#loading',
+                    renderSSControls: true,
+                    renderNavControls: true,
+                    playLinkText: 'Play Slideshow',
+                    pauseLinkText: 'Pause Slideshow',
+//                    prevLinkText: '&lsaquo; Previous Phoo',
+//                    nextLinkText: 'Next Photo &rsaquo;',
+//                    nextPageLinkText: 'Next &rsaquo;',
+//                    prevPageLinkText: '&lsaquo; Prev',
+                    enableHistory: false,
+                    autoStart: false,
+                    syncTransitions: true,
+                    defaultTransitionDuration: 900,
+                    onSlideChange: function(prevIndex, nextIndex) {
+                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
+                        this.find('ul.thumbs').children()
+                                .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                                .eq(nextIndex).fadeTo('fast', 1.0);
+                    },
+                    onPageTransitionOut: function(callback) {
+                        this.fadeTo('fast', 0.0, callback);
+                    },
+                    onPageTransitionIn: function() {
+                        this.fadeTo('fast', 1.0);
+                    }
+                });
+            });
+        </script>
+        <!--Photo Gallery-->
+        <!--[if IE]>
+        <style type="text/css">
+            .nav > li > a{
+                height: 2.4em;
+            }
+            .nav > li > ul > li > a{
+                width: 160px;
+            }
+            .sub_nav{
+                margin-left: 187px;
+                margin-top: -42px;
+            }
+            .sub_nav > li > a{
+                width: 250px;
+            }
+            div.slideshow span.image-wrapper{
+                top: 2px;
+            }
+        </style>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="header">
+            <div class="header_1">
+                <div class="container_12">
+                    <div class="prefix_10 grid_2 header_1_content">
+                        <ul>
+                            <li><a href="#EN"><img src="asset/img/EN_logo.png" alt="" draggable="false"/>EN</a></li>
+                            <li><a href="#IN"><img src="asset/img/IN_logo.png" alt="" draggable="false"/>IN</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="header_2">
+                <div class="container_12">
+                    <div class="grid_3 header_2_logo">
+                        <a href="index.html"><img src="asset/img/logo_PMP.png" alt="" draggable="false"/></a>
+                    </div>
+                    <div class="grid_9 header_2_menu">
+                        <div class="header_2_menu_top"></div>
+                        <ul class="nav">
+                            <li>
+                                <a class="a_left">COMPANY PROFILE</a>
+                                <ul>
+                                    <li><a href="cp_overview.html">OVERVIEW</a></li>
+                                    <li><a href="cp_locationfacilities.html">LOCATION & FACILITIES</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="a_left">PRODUCT & SOLUTION</a>
+                                <ul>
+                                    <li><a href="product_ourdifferentiation.html">OUR DIFFERENTATION</a></li>
+                                    <li><a href="product_shipyard.html">SHIPYARD EXPERIENCE</a></li>
+                                    <li>
+                                        <a>PRODUCT GROUP</a>
+                                        <ul class="sub_nav">
+                                            <li><a href="product_tugboat_overview.html">TUG BOAT</a></li>
+                                            <li><a href="#">BARGE</a></li>
+                                            <li><a href="#">SELF PROPELLED BARGE(SPB)</a></li>
+                                            <li><a href="#">SELF PROPELLED OIL BARGE (SPOB)</a></li>
+                                            <li><a href="#">LANDING CRAFT TANK (LCT)</a></li>
+                                            <li><a href="#">ACCOMODATION CRAFT BARGE (AWB)</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="product_solution.html">SOLUTION</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="a_se">BUSINESS</a>
+                                <ul>
+                                    <li><a href="business_mining.html">MINING</a></li>
+                                    <li><a href="business_oilgas.html">OIL & GAS</a></li>
+                                    <li><a href="business_forestry.html">FORESTRY</a></li>
+                                    <li><a href="business_agro.html">AGRO</a></li>
+                                    <li><a href="business_industrial.html">INDUSTRIAL</a></li>
+                                    <li><a href="business_automotive.html">AUTOMOTIVE</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="a_se_lo">SUSTAINABILITY</a>
+                                <ul>
+                                    <li><a href="sustainability_ourpeople.html">OUR PEOPLE VALUES</a></li>
+                                    <li><a href="sustainability_environment.html">ENVIRONMENT</a></li>
+                                    <li><a href="sustainability_society.html">SOCIETY</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="news.html" class="a_se_sh">NEWS</a>
+                            </li>
+                            <li>
+                                <a class="a_se">CAREER</a>
+                                <ul>
+                                    <li><a href="career_jobvacancy.html">JOB VACANCY</a></li>
+                                    <li><a href="career_applicationform.html">APPLICATION FORM</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact_us.html" class="a_se_lo">CONTACT US</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="content">
+            <div class="container_12">
+                <div class="grid_6 suffix_6 nav_page">
+                    <ul>
+                        <li><a href="#">HOME</a></li>
+                        <li>/</li>
+                        <li><a href="#">PRODUCT & SOLUTION</a></li>
+                        <li>/</li>
+                        <li><a href="#">PRODUCT GROUP</a></li>
+                        <li>/</li>
+                        <li><a href="#">TUG BOAT</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+                <div class="grid_12 pg_home">
+                    <div class="pg_home_top"></div>
+                    <div class="pg_home_content">
+                        <div class="grid_3 suffix_1 pg_home_content_title">
+                            <h1 class="h1_4">TUG BOAT</h1>
+                        </div>
+                        <div class="grid_7">
+                            <p>
+                                <a>Patria maritim perkasa</a> provide lifecycle ship design-building solutions to enhance the business of our customers, whilst creating better design that benefit both the customer and the environment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="grid_12 content_page">
+                    <div class="clear"></div>
+                    <ul class="nav_tug_boat">
+                        <li><a href="product_tugboat_overview.html">overview</a></li>
+                        <li><a href="product_tugboat_spesification.html">technical specification</a></li>
+                        <li><a href="product_tugboat_picturegallery.html" style="background: #2B2926;">picture gallery</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                    <div class="tugboat_photogallery">
+                        <div id="gallery" class="content_slide">
+                            <div id="controls" class="controls"></div>
+                            <div class="slideshow-container">
+                                <div id="loading" class="loader"></div>
+                                <div id="slideshow" class="slideshow"></div>
+                            </div>
+                        </div>
+                        <div id="thumbs" class="navigation">
+                            <ul class="thumbs noscript">
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/1.jpg" title="Title #0">
+                                        <img src="asset/img/tugboat_pg/thumb/1.jpg" alt="Title #0" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/2.jpg" title="Title #1">
+                                        <img src="asset/img/tugboat_pg/thumb/2.jpg" alt="Title #1" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/3.jpg" title="Title #2">
+                                        <img src="asset/img/tugboat_pg/thumb/3.jpg" alt="Title #2" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/4.jpg" title="Title #3">
+                                        <img src="asset/img/tugboat_pg/thumb/4.jpg" alt="Title #3" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/5.jpg" title="Title #4">
+                                        <img src="asset/img/tugboat_pg/thumb/5.jpg" alt="Title #4" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/1.jpg" title="Title #0">
+                                        <img src="asset/img/tugboat_pg/thumb/1.jpg" alt="Title #0" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/2.jpg" title="Title #1">
+                                        <img src="asset/img/tugboat_pg/thumb/2.jpg" alt="Title #1" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/3.jpg" title="Title #2">
+                                        <img src="asset/img/tugboat_pg/thumb/3.jpg" alt="Title #2" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/4.jpg" title="Title #3">
+                                        <img src="asset/img/tugboat_pg/thumb/4.jpg" alt="Title #3" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/5.jpg" title="Title #4">
+                                        <img src="asset/img/tugboat_pg/thumb/5.jpg" alt="Title #4" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/1.jpg" title="Title #0">
+                                        <img src="asset/img/tugboat_pg/thumb/1.jpg" alt="Title #0" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/2.jpg" title="Title #1">
+                                        <img src="asset/img/tugboat_pg/thumb/2.jpg" alt="Title #1" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/3.jpg" title="Title #2">
+                                        <img src="asset/img/tugboat_pg/thumb/3.jpg" alt="Title #2" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/4.jpg" title="Title #3">
+                                        <img src="asset/img/tugboat_pg/thumb/4.jpg" alt="Title #3" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/5.jpg" title="Title #4">
+                                        <img src="asset/img/tugboat_pg/thumb/5.jpg" alt="Title #4" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/1.jpg" title="Title #0">
+                                        <img src="asset/img/tugboat_pg/thumb/1.jpg" alt="Title #0" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/2.jpg" title="Title #1">
+                                        <img src="asset/img/tugboat_pg/thumb/2.jpg" alt="Title #1" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/3.jpg" title="Title #2">
+                                        <img src="asset/img/tugboat_pg/thumb/3.jpg" alt="Title #2" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/4.jpg" title="Title #3">
+                                        <img src="asset/img/tugboat_pg/thumb/4.jpg" alt="Title #3" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="leaf" href="asset/img/tugboat_pg/5.jpg" title="Title #4">
+                                        <img src="asset/img/tugboat_pg/thumb/5.jpg" alt="Title #4" />
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tugboat_photogallery_shad"></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="footer">
+            <div class="footer_1">
+                <div class="container_12">
+                    <div class="grid_12 comp_group_awrd">
+                        <div class="grid_4 awards">
+                            <span>
+                                <img src="asset/img/iso9001.png" draggable="false" alt=""/>
+                            </span>
+                            <span>
+                                <img src="asset/img/iso-ohsas.png" draggable="false" alt=""/>
+                            </span>
+                        </div>
+                        <div class="grid_8 company_group">
+                            <ul>
+                                <li>
+                                    <img src="asset/img/comp_group.png" draggable="false" alt="">
+                                </li>
+                                <li>
+                                    <img src="asset/img/patria.png" draggable="false" alt="">
+                                </li>
+                                <li>
+                                    <img src="asset/img/patria_m_l.png" draggable="false" alt="">
+                                </li>
+                                <li>
+                                    <img src="asset/img/patria_m_i.png" draggable="false" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_2">
+                <div class="clear"></div>
+                <div class="footer_2_gr"></div>
+                <div class="clear"></div>
+                <div class="footer_2_top"></div>
+                <div class="clear"></div>
+                <div class="footer_2_menu">
+                    <div class="container_12">
+                        <div class="grid_4 copyright">
+                            <h4>&COPY;2013 PATRIA MARITIM PERKASA</h4>
+                            <h5>ALL RIGHTS RESERVED. DEVELOPMENT BY</h5><a href="http://www.imajiku.com"><img src="asset/img/logo_imajiku.png" alt="" draggable="false"></a>
+                        </div>
+                        <div class="grid_2 sosnet">
+                            <ul>
+                                <li><a href="#fb"><img src="asset/img/fb.png" draggable="false" alt=""></a></li>
+                                <li><a href="#tw"><img src="asset/img/twitter.png" draggable="false" alt=""></a></li>
+                                <li><a href="#li"><img src="asset/img/linkedin.png" draggable="false" alt=""></a></li>
+                            </ul>
+                        </div>
+                        <div class="grid_6 menu_bottom">
+                            <ul>
+                                <li><a href="#">DISCLAIMER</a></li>
+                                <li><a href="#">PRIVACY POLICY</a></li>
+                                <li><a href="#">TERM OF USE</a></li>
+                                <li><a href="#">SITEMAP</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="footer_2_bot"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </body>
+</html>

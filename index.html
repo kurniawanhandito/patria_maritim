@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Patria Maritim | Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="application-name" content="Patria Maritim">
+        <meta name="description" content="Patria maritim perkasa provide lifecycle ship design-building solutions to enhance the business of our customers, whilst creating better design that benefit both the customer and the environment.">
+        <link rel="icon" href="asset/img/ico.gif">
+        <link rel="stylesheet" href="asset/css/960.css"/>
+        <link rel="stylesheet" href="asset/css/constant.css"/>
+        <link rel="stylesheet" href="asset/css/style.css"/>
+        <link rel="stylesheet" href="asset/css/galleriffichome.css"/>
+        <link rel="stylesheet" href="asset/css/jquery.lightbox-0.5.css"/>
+
+        <script src="asset/js/mootools-1.2-core.js"></script>  
+        <script src="asset/js/SlideItMoo.js"></script>
+        <script src="asset/js/mootools-1.2-more.js"></script>
+        <script src="asset/js/jquery.js"></script>
+        <script>
+            $.noConflict();
+        </script>
+        <script src="asset/js/jquery.lightbox-0.5.js"></script>
+        <script>
+            jQuery(document).ready(function ($)
+            {
+                $('#gallery_patria > a').lightBox(
+                        {
+                            imageLoading: 'asset/img/pop_up/img_add/lightbox-ico-loading.gif', // (string) Path and the name of the loading icon
+                            imageBtnPrev: 'asset/img/pop_up/img_add/lightbox-btn-prev.png', // (string) Path and the name of the prev button image
+                            imageBtnNext: 'asset/img/pop_up/img_add/lightbox-btn-next.png', // (string) Path and the name of the next button image
+                            imageBtnClose: 'asset/img/pop_up/img_add/lightbox-btn-close.png', // (string) Path and the name of the close btn
+                            imageBlank: 'asset/img/pop_up/img_add/lightbox-blank.gif' // (string) Path and the name of a blank image (one pixel)
+                        }
+                );
+            });
+        </script>
+        <script src="asset/js/jquery-1.3.2.js"></script>
+        <script>
+            $.noConflict();
+        </script>
+        <script src="asset/js/jquery.history.js"></script>
+        <script src="asset/js/jquery.galleriffic.js"></script>
+        <script src="asset/js/jquery.opacityrollover.js"></script>
+        <script>
+            document.write('<style>.noscript { display: none; }</style>');
+        </script>
+        <script>
+            window.addEvent('domready', function () {
+                new SlideItMoo({
+                    currentElement: 0, //gambar pada slider galeri pertama yang tampil, dimulai dengan 0
+                    thumbsContainer: 'thumbs2',
+                    elementScrolled: 'thumb_container2',
+                    overallContainer: 'gallery_container2'});
+            });
+        </script>
+        <script>
+            jQuery(document).ready(function ($) {
+                // We only want these styles applied when javascript is enabled
+                $('div.content_slide').css('display', 'block');
+                // Initially set opacity on thumbs and add
+                // additional styling for hover effect on thumbs
+                var onMouseOutOpacity = 0.67;
+                $('#thumbs ul.thumbs li, div.navigation a.pageLink').opacityrollover({
+                    mouseOutOpacity: onMouseOutOpacity,
+                    mouseOverOpacity: 1.0,
+                    fadeSpeed: 'fast',
+                    exemptionSelector: '.selected'
+                });
+                // Initialize Advanced Galleriffic Gallery
+                var gallery = $('#thumbs').galleriffic({
+                    delay: 2500,
+                    numThumbs: 3,
+                    preloadAhead: 10,
+                    enableTopPager: false,
+                    enableBottomPager: false,
+                    imageContainerSel: '#slideshow',
+                    controlsContainerSel: '#controls',
+                    captionContainerSel: '#caption',
+                    loadingContainerSel: '#loading',
+                    renderSSControls: true,
+                    renderNavControls: true,
+//                    playLinkText: 'Play Slideshow',
+//                    pauseLinkText: 'Pause Slideshow',
+                    prevLinkText: ' ',
+                    nextLinkText: ' ',
+//                    nextPageLinkText: 'Next &rsaquo;',
+//                    prevPageLinkText: '&lsaquo; Prev',
+                    enableHistory: true,
+                    autoStart: false,
+                    syncTransitions: true,
+                    defaultTransitionDuration: 900,
+                    onSlideChange: function (prevIndex, nextIndex) {
+                        // 'this' refers to the gallery, which is an extension of $('#thumbs')
+                        this.find('ul.thumbs').children()
+                                .eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+                                .eq(nextIndex).fadeTo('fast', 1.0);
+
+                        // Update the photo index display
+                        this.$captionContainer.find('div.photo-index')
+                                .html('Photo ' + (nextIndex + 1) + ' of ' + this.data.length);
+                    },
+                    onPageTransitionOut: function (callback) {
+                        this.fadeTo('fast', 0.0, callback);
+                    },
+                    onPageTransitionIn: function () {
+                        var prevPageLink = this.find('a.prev').css('visibility', 'hidden');
+                        var nextPageLink = this.find('a.next').css('visibility', 'hidden');
+                        // Show appropriate next / prev page links
+                        if (this.displayedPage > 0)
+                            prevPageLink.css('visibility', 'visible');
+
+                        var lastPage = this.getNumPages() - 1;
+                        if (this.displayedPage < lastPage)
+                            nextPageLink.css('visibility', 'visible');
+
+                        this.fadeTo('fast', 1.0);
+                    }
+                });
+                /**************** Event handlers for custom next / prev page links **********************/
+                gallery.find('a.prev').click(function (e) {
+                    gallery.previousPage();
+                    e.preventDefault();
+                });
+                gallery.find('a.next').click(function (e) {
+                    gallery.nextPage();
+                    e.preventDefault();
+                });
+                /****************************************************************************************/
+                /**** Functions to support integration of galleriffic with the jquery.history plugin ****/
+                // PageLoad function
+                // This function is called when:
+                // 1. after calling $.historyInit();
+                // 2. after calling $.historyLoad();
+                // 3. after pushing "Go Back" button of a browser
+                function pageload(hash) {
+                    // alert("pageload: " + hash);
+                    // hash doesn't contain the first # character.
+                    if (hash) {
+                        $.galleriffic.gotoImage(hash);
+                    } else {
+                        gallery.gotoIndex(0);
+                    }
+                }
+                // Initialize history plugin.
+                // The callback is called at once by present location.hash. 
+                $.historyInit(pageload, "advanced.html");
+                // set onlick event for buttons using the jQuery 1.3 live method
+                $("a[rel='history']").live('click', function (e) {
+                    if (e.button != 0)
+                        return true;
+
+                    var hash = this.href;
+                    hash = hash.replace(/^.*#/, '');
+                    // moves to a new page. 
+                    // pageload is called at once. 
+                    // hash don't contain "#", "?"
+                    $.historyLoad(hash);
+                    return false;
+                });
+            });
+        </script>
+        <!--[if IE]>
+        <style type="text/css">
+            .nav > li > a{
+                height: 2.4em;
+            }
+            .nav > li > ul > li > a{
+                width: 160px;
+            }
+            .sub_nav{
+                margin-left: 187px;
+                margin-top: -42px;
+            }
+            .sub_nav > li > a{
+                width: 250px;
+            }
+            a.prev, a.next{
+                top: 409px;
+            }
+            .thumbnail > p{
+                background-image: url('asset/img/caption_gallery.jpg') !important;
+                filter: none;
+            }
+        </style>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="header">
+            <div class="header_1">
+                <div class="container_12">
+                    <div class="prefix_10 grid_2 header_1_content">
+                        <ul>
+                            <li><a href="#EN"><img src="asset/img/EN_logo.png" alt="" draggable="false"/>EN</a></li>
+                            <li><a href="#IN"><img src="asset/img/IN_logo.png" alt="" draggable="false"/>IN</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="header_2">
+                <div class="container_12">
+                    <div class="grid_3 header_2_logo">
+                        <a href="index.html"><img src="asset/img/logo_PMP.png" alt="" draggable="false"/></a>
+                    </div>
+                    <div class="grid_9 header_2_menu">
+                        <div class="header_2_menu_top"></div>
+                        <ul class="nav">
+                            <li>
+                                <a class="a_left">COMPANY PROFILE</a>
+                                <ul>
+                                    <li><a href="cp_overview.html">OVERVIEW</a></li>
+                                    <li><a href="cp_locationfacilities.html">LOCATION & FACILITIES</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="a_left">PRODUCT & SOLUTION</a>
+                                <ul>
+                                    <li><a href="product_ourdifferentiation.html">OUR DIFFERENTATION</a></li>
+                                    <li><a href="product_shipyard.html">SHIPYARD EXPERIENCE</a></li>
+                                    <li>
+                                        <a>PRODUCT GROUP</a>
+                                        <ul class="sub_nav">
+                                            <li><a href="product_tugboat_overview.html">TUG BOAT</a></li>
+                                            <li><a href="#">BARGE</a></li>
+                                            <li><a href="#">SELF PROPELLED BARGE(SPB)</a></li>
+                                            <li><a href="#">SELF PROPELLED OIL BARGE (SPOB)</a></li>
+                                            <li><a href="#">LANDING CRAFT TANK (LCT)</a></li>
+                                            <li><a href="#">ACCOMODATION CRAFT BARGE (AWB)</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="product_solution.html">SOLUTION</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="a_se">BUSINESS</a>
+                                <ul>
+                                    <li><a href="business_mining.html">MINING</a></li>
+                                    <li><a href="business_oilgas.html">OIL & GAS</a></li>
+                                    <li><a href="business_forestry.html">FORESTRY</a></li>
+                                    <li><a href="business_agro.html">AGRO</a></li>
+                                    <li><a href="business_industrial.html">INDUSTRIAL</a></li>
+                                    <li><a href="business_automotive.html">AUTOMOTIVE</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="a_se_lo">SUSTAINABILITY</a>
+                                <ul>
+                                    <li><a href="sustainability_ourpeople.html">OUR PEOPLE VALUES</a></li>
+                                    <li><a href="sustainability_environment.html">ENVIRONMENT</a></li>
+                                    <li><a href="sustainability_society.html">SOCIETY</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="news.html" class="a_se_sh">NEWS</a>
+                            </li>
+                            <li>
+                                <a class="a_se">CAREER</a>
+                                <ul>
+                                    <li><a href="career_jobvacancy.html">JOB VACANCY</a></li>
+                                    <li><a href="career_applicationform.html">APPLICATION FORM</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="contact_us.html" class="a_se_lo">CONTACT US</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="header_home">
+                <div class="container_12 header_home_back">
+                    <div class="navigation-container">
+                        <div id="thumbs" class="navigation">
+                            <ul class="thumbs noscript">
+                                <li>
+                                    <a class="thumb" name="ourvalues" href="asset/img/slide_home/1.jpg" title="Title #0">
+                                        <img src="asset/img/slide_home/thumb/1.jpg" alt="Title #0" />
+                                    </a>
+                                    <div class="clear"></div>
+                                    <div class="caption">
+                                        <div class="slide_bann_title">
+                                            <a>our</a> values <a class="a_sub">//</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_det">
+                                            <p>
+                                                We will be the excellent valued ship design building partner of all our customers.
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_readmore">
+                                            <a href="#">Readmore<sup>+</sup></a>
+                                        </div>
+                                        <div class="download_file">
+                                            <a href="#">
+                                                <img src="asset/img/pdf_home.png" alt="" draggable="false"/>
+                                                <p>DOWNLOAD PDF</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="ourvalues" href="asset/img/slide_home/2.jpg" title="Title #1">
+                                        <img src="asset/img/slide_home/thumb/2.jpg" alt="Title #1" />
+                                    </a>
+                                    <div class="clear"></div>
+                                    <div class="caption">
+                                        <div class="slide_bann_title">
+                                            <a>our</a> values <a class="a_sub">//</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_det">
+                                            <p>
+                                                We will be the excellent valued ship design building partner of all our customers.
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_readmore">
+                                            <a href="#">Readmore<sup>+</sup></a>
+                                        </div>
+                                        <div class="download_file">
+                                            <a href="#">
+                                                <img src="asset/img/pdf_home.png" alt="" draggable="false"/>
+                                                <p>DOWNLOAD PDF</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="ourvalues" href="asset/img/slide_home/3.jpg" title="Title #2">
+                                        <img src="asset/img/slide_home/thumb/3.jpg" alt="Title #2" />
+                                    </a>
+                                    <div class="clear"></div>
+                                    <div class="caption">
+                                        <div class="slide_bann_title">
+                                            <a>our</a> values <a class="a_sub">//</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_det">
+                                            <p>
+                                                We will be the excellent valued ship design building partner of all our customers.
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_readmore">
+                                            <a href="#">Readmore<sup>+</sup></a>
+                                        </div>
+                                        <div class="download_file">
+                                            <a href="#">
+                                                <img src="asset/img/pdf_home.png" alt="" draggable="false"/>
+                                                <p>DOWNLOAD PDF</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="ourvalues" href="asset/img/slide_home/1.jpg" title="Title #0">
+                                        <img src="asset/img/slide_home/thumb/1.jpg" alt="Title #0" />
+                                    </a>
+                                    <div class="clear"></div>
+                                    <div class="caption">
+                                        <div class="slide_bann_title">
+                                            <a>our</a> values <a class="a_sub">//</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_det">
+                                            <p>
+                                                We will be the excellent valued ship design building partner of all our customers.
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_readmore">
+                                            <a href="#">Readmore<sup>+</sup></a>
+                                        </div>
+                                        <div class="download_file">
+                                            <a href="#">
+                                                <img src="asset/img/pdf_home.png" alt="" draggable="false"/>
+                                                <p>DOWNLOAD PDF</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="ourvalues" href="asset/img/slide_home/2.jpg" title="Title #1">
+                                        <img src="asset/img/slide_home/thumb/2.jpg" alt="Title #1" />
+                                    </a>
+                                    <div class="clear"></div>
+                                    <div class="caption">
+                                        <div class="slide_bann_title">
+                                            <a>our</a> values <a class="a_sub">//</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_det">
+                                            <p>
+                                                We will be the excellent valued ship design building partner of all our customers.
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_readmore">
+                                            <a href="#">Readmore<sup>+</sup></a>
+                                        </div>
+                                        <div class="download_file">
+                                            <a href="#">
+                                                <img src="asset/img/pdf_home.png" alt="" draggable="false"/>
+                                                <p>DOWNLOAD PDF</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a class="thumb" name="ourvalues" href="asset/img/slide_home/3.jpg" title="Title #2">
+                                        <img src="asset/img/slide_home/thumb/3.jpg" alt="Title #2" />
+                                    </a>
+                                    <div class="clear"></div>
+                                    <div class="caption">
+                                        <div class="slide_bann_title">
+                                            <a>our</a> values <a class="a_sub">//</a>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_det">
+                                            <p>
+                                                We will be the excellent valued ship design building partner of all our customers.
+                                            </p>
+                                        </div>
+                                        <div class="clear"></div>
+                                        <div class="slide_bann_readmore">
+                                            <a href="#">Readmore<sup>+</sup></a>
+                                        </div>
+                                        <div class="download_file">
+                                            <a href="#">
+                                                <img src="asset/img/pdf_home.png" alt="" draggable="false"/>
+                                                <p>DOWNLOAD PDF</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content_slide grid_12">
+                        <div class="slideshow-container">
+                            <div id="controls" class="controls"></div>
+                            <div id="loading" class="loader"></div>
+                            <div id="slideshow" class="slideshow"></div>
+                        </div>
+                        <div id="caption" class="caption-container">
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="back_header_home"></div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="content">
+            <div class="container_12">
+                <div class="grid_12 pg_home">
+                    <div class="pg_home_top"></div>
+                    <div class="pg_home_content">
+                        <div class="grid_3 suffix_1 pg_home_content_title">
+                            <h1 class="h1_1">welcome...</h1>
+                            <h1 class="h1_2">to our website</h1>
+                        </div>
+                        <div class="grid_7">
+                            <p>
+                                <a>Patria maritim perkasa</a> provide lifecycle ship design-building solutions to enhance the business of our customers, whilst creating better design that benefit both the customer and the environment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="grid_4 list_content">
+                    <div class="icon_list_content">
+                        <img src="asset/img/ico_img_list_content_comp_profile.png" draggable="false" alt="">
+                    </div>
+                    <div class="img_title_list_content">
+                        <div class="img_list_content">
+                            <img src="asset/img/list_c_comp_profile.jpg" draggable="false" alt="">
+                        </div>
+                        <div class="title_list_content">
+                            <a>company profile</a>
+                        </div>
+                    </div>
+                    <div class="det_list_content">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the and typesetting industry Ipsum has been the industry's standard...
+                        </p>
+                    </div>
+                    <a href="#">READMORE<sup>+</sup></a>
+                </div>
+                <div class="grid_4 list_content">
+                    <div class="icon_list_content">
+                        <img src="asset/img/ico_img_list_content_product.png" draggable="false" alt="">
+                    </div>
+                    <div class="img_title_list_content">
+                        <div class="img_list_content">
+                            <img src="asset/img/list_c_product_group.jpg" draggable="false" alt="">
+                        </div>
+                        <div class="title_list_content">
+                            <a>product group</a>
+                        </div>
+                    </div>
+                    <div class="det_list_content">
+                        <p>
+                            Lorem Ipsum is simply dummy text of the and typesetting industry Ipsum has been the industry's standard...
+                        </p>
+                    </div>
+                    <a href="#">READMORE<sup>+</sup></a>
+                </div>
+                <div class="grid_4 list_content">
+                    <div class="icon_list_content">
+                        <img src="asset/img/ico_img_list_content_business.png" draggable="false" alt="">
+                    </div>
+                    <div class="img_title_list_content">
+                        <div class="img_list_content">
+                            <img src="asset/img/list_c_business.jpg" draggable="false" alt="">
+                        </div>
+                        <div class="title_list_content">
+                            <a>business</a>
+                        </div>
+                    </div>
+                    <div class="det_list_content">
+                        <p>Lorem Ipsum is simply dummy text of the and typesetting industry Ipsum has been the industry's standard...</p>
+                    </div>
+                    <a href="#">READMORE<sup>+</sup></a>
+                </div>
+                <div class="grid_12 gallery">
+                    <div class="clear"></div>
+                    <div class="title_gallery">
+                        gallery
+                    </div>
+                    <div class="clear"></div>
+                    <div id="gallery_container2">	
+                        <div id="thumb_container2">			
+                            <div id="thumbs2">
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/1.jpg">
+                                        <img src="asset/img/slide_gallery/1.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/2.jpg">
+                                        <img src="asset/img/slide_gallery/2.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/3.jpg">
+                                        <img src="asset/img/slide_gallery/3.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/4.jpg">
+                                        <img src="asset/img/slide_gallery/4.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/1.jpg">
+                                        <img src="asset/img/slide_gallery/1.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/2.jpg">
+                                        <img src="asset/img/slide_gallery/2.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/3.jpg">
+                                        <img src="asset/img/slide_gallery/3.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                                <div id="gallery_patria" class="thumbnail">
+                                    <a href="asset/img/slide_gallery/4.jpg">
+                                        <img src="asset/img/slide_gallery/4.jpg"/>
+                                    </a>
+                                    <p>Nam porta tellus ac urna</p>
+                                </div>
+                            </div>			
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="footer">
+            <div class="footer_1">
+                <div class="container_12">
+                    <div class="grid_12 comp_group_awrd">
+                        <div class="clear"></div>
+                        <div class="grid_4 awards">
+                            <span>
+                                <img src="asset/img/iso9001.png" draggable="false" alt=""/>
+                            </span>
+                            <span>
+                                <img src="asset/img/iso-ohsas.png" draggable="false" alt=""/>
+                            </span>
+                        </div>
+                        <div class="grid_8 company_group">
+                            <ul>
+                                <li>
+                                    <img src="asset/img/comp_group.png" draggable="false" alt="">
+                                </li>
+                                <li>
+                                    <img src="asset/img/patria.png" draggable="false" alt="">
+                                </li>
+                                <li>
+                                    <img src="asset/img/patria_m_l.png" draggable="false" alt="">
+                                </li>
+                                <li>
+                                    <img src="asset/img/patria_m_i.png" draggable="false" alt="">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="footer_2">
+                <div class="clear"></div>
+                <div class="footer_2_gr"></div>
+                <div class="clear"></div>
+                <div class="footer_2_top"></div>
+                <div class="clear"></div>
+                <div class="footer_2_menu">
+                    <div class="container_12">
+                        <div class="grid_4 copyright">
+                            <h4>&COPY;2013 PATRIA MARITIM PERKASA</h4>
+                            <h5>ALL RIGHTS RESERVED. DEVELOPMENT BY</h5><a href="http://www.imajiku.com"><img src="asset/img/logo_imajiku.png" alt="" draggable="false"></a>
+                        </div>
+                        <div class="grid_2 sosnet">
+                            <ul>
+                                <li><a href="#fb"><img src="asset/img/fb.png" draggable="false" alt=""></a></li>
+                                <li><a href="#tw"><img src="asset/img/twitter.png" draggable="false" alt=""></a></li>
+                                <li><a href="#li"><img src="asset/img/linkedin.png" draggable="false" alt=""></a></li>
+                            </ul>
+                        </div>
+                        <div class="grid_6 menu_bottom">
+                            <ul>
+                                <li><a href="#">DISCLAIMER</a></li>
+                                <li><a href="#">PRIVACY POLICY</a></li>
+                                <li><a href="#">TERM OF USE</a></li>
+                                <li><a href="#">SITEMAP</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="footer_2_bot"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </body>
+</html>

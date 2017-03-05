@@ -1,0 +1,491 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 15, 2013, 2:33:39 PM
+    Author     : HANDITO
+*/
+root{
+    display: block;
+}
+body{
+    padding: 0px !important;
+    margin: 0px !important;
+    border: none;
+    background-image: url('../img/background.jpg');
+    background-repeat: repeat;
+}
+/*
+font-face
+*/
+@font-face{
+    font-family: DINPro-R;
+    src: 
+    url('../font/DINPro/DINPro-R/DINPro-Regular.eot?') format('eot'),
+    url('../font/DINPro/DINPro-R/DINPro-Regular.otf') format('opentype'),
+    url('../font/DINPro/DINPro-R/DINPro-Regular.svg') format('svg'),
+    url('../font/DINPro/DINPro-R/DINPro-Regular.ttf') format('truetype'),
+    url('../font/DINPro/DINPro-R/DINPro-Regular.woff') format('woff');
+}
+@font-face{
+    font-family: DINPro-M;
+    src: 
+    url('../font/DINPro/DINPro-M/DINPro-Medium.eot?') format('eot'),
+    url('../font/DINPro/DINPro-M/DINPro-Medium.otf') format('opentype'),
+    url('../font/DINPro/DINPro-M/DINPro-Medium.svg') format('svg'),
+    url('../font/DINPro/DINPro-M/DINPro-Medium.ttf') format('truetype'),
+    url('../font/DINPro/DINPro-M/DINPro-Medium.woff') format('woff');
+}
+@font-face{
+    font-family: DINPro-B;
+    src:
+    url('../font/DINPro/DINPro-B/DINPro-Black.eot?') format('eot'),
+    url('../font/DINPro/DINPro-B/DINPro-Black.otf') format('opentype'),
+    url('../font/DINPro/DINPro-B/DINPro-Black.svg') format('svg'),
+    url('../font/DINPro/DINPro-B/DINPro-Black.ttf') format('truetype'),
+    url('../font/DINPro/DINPro-B/DINPro-Black.woff') format('woff');
+}
+@font-face{
+    font-family: DINPro-Bo;
+    src:
+    url('../font/DINPro/DINPro-Bo/DINPro-Bold.eot?') format('eot'),
+    url('../font/DINPro/DINPro-Bo/DINPro-Bold.otf') format('opentype'),
+    url('../font/DINPro/DINPro-Bo/DINPro-Bold.svg') format('svg'),
+    url('../font/DINPro/DINPro-Bo/DINPro-Bold.ttf') format('truetype'),
+    url('../font/DINPro/DINPro-Bo/DINPro-Bold.woff') format('woff');
+}
+@font-face{
+    font-family: DINPro-L;
+    src: 
+    url('../font/DINPro/DINPro-L/DINPro-Light.eot?') format('eot'),
+    url('../font/DINPro/DINPro-L/DINPro-Light.otf') format('opentype'),
+    url('../font/DINPro/DINPro-L/DINPro-Light.svg') format('svg'),
+    url('../font/DINPro/DINPro-L/DINPro-Light.ttf') format('truetype'),
+    url('../font/DINPro/DINPro-L/DINPro-Light.woff') format('woff');
+}
+/*
+End font face
+*/
+/*
+Header
+*/
+.header{
+    margin: 0px auto;
+    width: auto;
+    height: auto;
+    position: relative;
+    z-index: 1;
+}
+.header_1{
+    width: auto;
+    height: 20px;
+    border-bottom: 1px solid #E5E5E5;
+    background-color: #F7F7F7;
+    position: relative;
+    z-index: 2;
+}
+.header_1_content{
+    width: auto;
+    height: 20px;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    vertical-align: middle;
+}
+.header_1_content > ul{
+    text-align: center;
+    vertical-align: middle;
+    float: right;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 3px;
+}
+.header_1_content > ul > li{
+    list-style: none;
+    float: left;
+    font-family: DINPro-R;
+    font-size: 0.7em;
+}
+.header_1_content > ul > li:last-child{
+    margin-left: 10px;
+}
+.header_1_content > ul > li > a{
+    text-decoration: none;
+    color: black;
+}
+.header_1_content > ul > li > a > img{
+    margin-right: 3px;
+    border: none;
+}
+.header_2{
+    width: auto;
+    height: 105px;
+    background-color: #69CCE6;
+    position: relative;
+    z-index: 2;
+}
+.header_2_logo, .header_2_menu{
+    height: 90px;
+    background-color: #FFFFFF;
+}
+.header_2_logo{
+    margin-right: 0px;
+    width: 240px !important;
+}
+.header_2_logo > a > img{
+    padding: 18px 0px 18px 18px;
+    position: relative;
+    border: none;
+}
+.header_2_menu{
+    margin-left: 0px;
+}
+.header_2_menu_top{
+    height: 5px;
+    background-color: red;
+}
+.nav {
+    margin: 0 auto;
+    padding: 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.nav > li{
+    list-style: none;
+    float: left;   
+    margin: 0 auto;
+    padding: 0px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.nav > li > a{
+    padding: 2em 0em;
+    border-left: 1px solid whitesmoke;
+    list-style: none;
+    width: 100px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+    height: 2.5em;
+    text-decoration: none;
+    font-family: DINPro-R;
+    font-size: small;    
+    color: black;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.nav > li > a:hover{
+    color: red;
+}
+.nav > li:hover > ul{
+    visibility: visible;
+}
+.a_se{
+    width: 85px !important;
+    line-height: 2.5em;
+}
+.a_se_sh{
+    width: 60px !important;
+    line-height: 2.5em;
+}
+.a_se_lo{
+    width: 130px !important;
+    line-height: 2.5em;
+}
+.a_left{
+    text-align: left !important;
+    padding-left: 1.2em !important;
+    width: 85px !important;
+}
+.nav > li > ul{
+    visibility: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 2;
+    background: #FFFFFF;
+    text-align: left;
+    border-bottom: 1px solid whitesmoke;
+    border-right: 1px solid whitesmoke;
+}
+.nav > li > ul > li:hover > ul{
+    visibility: visible;
+}
+.sub_nav{
+    visibility: hidden;
+    padding: 0;
+    position: absolute;
+    z-index: 2;
+    background: #FFFFFF;
+    text-align: left;
+    margin-left: 182px;
+    margin-top: -40px;
+    border-bottom: 1px solid whitesmoke;
+    border-right: 1px solid whitesmoke;
+}
+.nav > li > ul > li{
+    float: none;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0px;
+}
+.sub_nav > li{
+    float: none;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0px;
+}
+.nav > li > ul > li > a{
+    padding: 1em 1em;
+    width: 155px;
+    text-align: left;
+    display: inline-block;
+    height: 1.1em;
+    text-decoration: none;
+    font-family: DINPro-R;
+    font-size: small;
+    color: black;
+    line-height: 1.1em;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    -ms-transition: background 0.3s ease-in-out;
+    -o-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+.sub_nav > li > a{
+    padding: 1em 1em;
+    width: 225px;
+    text-align: left;
+    display: inline-block;
+    height: 1.1em;
+    text-decoration: none;
+    font-family: DINPro-R;
+    font-size: small;
+    color: black;
+    line-height: 1.1em;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    -ms-transition: background 0.3s ease-in-out;
+    -o-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+.nav > li > ul > li > a:hover{
+    background-color: red;
+    color: white;
+}
+.sub_nav > li > a:hover{
+    background-color: red;
+    color: white;
+}
+.header_home{
+    height: 444px;
+    background-image: url('../img/header_home.jpg');
+    position: relative;
+    z-index: 1;
+    border-bottom: 10px solid whitesmoke;
+}
+.header_home_back{
+    height: auto;
+    text-align: center;
+}
+/*End of Header*/
+/*Content*/
+.content{
+    margin: 10px 0px 5px 0px;
+    height: auto;
+    width: auto;
+}
+.nav_page{
+    height: 15px;
+    margin-bottom: 10px;
+}
+.nav_page > ul{
+    margin: 0 auto;
+    padding: 0px;
+}
+.nav_page > ul > li{
+    list-style: none;
+    float: left;
+    font-family: DINPro-M;
+    font-size: 0.6em;
+    color: black;
+    text-decoration: none;
+    margin-right: 5px;
+}
+.nav_page > ul > li > a{
+    color: #000000;
+    text-decoration: none;
+}
+.nav_page > ul > li > a:hover{
+    color: #69CCE6;
+}
+.nav_page > ul > li:last-child > a{
+    color: #69CCE6;
+}
+.content_page{
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.content_page_title{
+    font-family: DINPro-B;
+    font-size: 1.3em;
+}
+.content_page_teaser{
+    margin-top: 20px;
+    font-family: OS-L;
+    color: gray;
+}
+/*End Of Content*/
+/*Footer*/
+.footer{
+    margin-bottom: 0px;
+    background: #F7F7F7;
+}
+.footer_1{
+    height: 115px;
+    border-bottom: 1px solid white;
+}
+.comp_group_awrd{
+    background: #FFFFFF;
+    height: 105px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.awards{
+    margin-left: 5px !important;
+    width: 340px !important;
+}
+.awards > span{
+    position: relative;
+    top: 15px;
+    left: 10px;
+    margin-right: 10px;
+}
+.company_group{
+    width: 580px !important;
+    height: 98px;
+    line-height: 98px;
+}
+.company_group > ul{
+    margin: 0 auto;
+    padding: 0px;
+}
+.company_group > ul > li{
+    list-style: none;
+    float: left;
+    padding: 5px;
+    height: 65px !important;
+    margin-left: 15px;
+}
+.company_group > ul > li:first-child{
+    padding: 15px 0px 0px 0px;
+}
+.awards, .company_group{
+    border: 1px solid whitesmoke;
+    height: 96px;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-top: 4px;
+}
+.footer_2{
+    height: 85px;
+}
+.footer_2_gr{
+    height: 20px;
+    margin-bottom: 0px;
+}
+.footer_2_top{
+    height: 5px;
+    margin-bottom: 0px;
+    background: #ED363F;
+}
+.footer_2_menu{
+    height: 55px;
+    margin-bottom: 0px;
+    background: #2B2926;
+}
+.copyright, .menu_bottom{
+    height: 55px;
+}
+.copyright{
+}
+.copyright > h4, .copyright > h5{
+    margin: 0 auto;
+    font-family: DINPro-L;
+    font-weight: lighter;
+    color: #ACACAC;
+}
+.copyright > h4{
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+.copyright > h5{
+    font-size: 0.6em;
+    display: inline-block;
+}
+.copyright > a > img{
+    position: relative;
+    top: 3px;
+    left: 3px;
+    border: none;
+}
+.sosnet{
+    height: 55px;
+}
+.sosnet > ul{
+    margin: 0 auto;
+    padding: 12px;
+    position: relative;
+    left: 3px;
+}
+.sosnet > ul > li{
+    list-style: none;
+    float: left;
+    margin-right: 5px;
+}
+.sosnet > ul > li > a > img{
+    border: none;
+}
+.menu_bottom{
+}
+.menu_bottom > ul{
+    margin: 0 auto;
+    padding: 0px;
+}
+.menu_bottom > ul > li{
+    list-style: none;
+    float: left;
+}
+.menu_bottom > ul > li > a{
+    font-family: DINPro-L;
+    font-weight: lighter;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px;
+    position: relative;
+    top: 15px;
+}
+.menu_bottom > ul > li > a:hover{
+    color: #ACACAC;
+}
+.footer_2_bot{
+    height: 10px;
+    margin-bottom: 0px;
+    background: #35332F;
+}
+/*
+End of Footer
+*/

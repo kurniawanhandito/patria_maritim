@@ -1,0 +1,308 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 21, 2013, 9:42:09 AM
+    Author     : HANDITO
+*/
+div.content_slide a, div.navigation a {
+    text-decoration: none;
+}
+div.content_slide a:hover, div.content_slide a:active {}
+div.navigation a.pageLink {
+    height: 77px;
+    line-height: 77px;
+}
+div.controls {
+    margin-top: 5px;
+    height: 23px;
+}
+div.controls a {
+    padding: 5px;
+}
+div.ss-controls {
+    float: left;
+    display: none;
+}
+div.nav-controls {
+    float: right;
+    position: relative;
+    z-index: 5;
+}
+div.slideshow-container,
+div.loader,
+div.slideshow a.advance-link {
+    width: 940px;
+}
+div.loader,
+div.slideshow a.advance-link,
+div.caption-container {
+    height: auto !important;
+}
+div.slideshow-container {
+}
+div.loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url('../img/loader.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+div.slideshow span.image-wrapper {
+    display: block;
+    position: absolute;
+    top: -28px;
+    height: 385px;
+    width: 890px;
+    left: 50px;
+}
+div.slideshow a.advance-link {
+    display: block;
+    text-align: center;
+    width: auto !important;
+    height: auto !important;
+}
+
+div.slideshow a.advance-link:hover,
+div.slideshow a.advance-link:active,
+div.slideshow a.advance-link:visited {
+    text-decoration: none;
+}
+div.slideshow a.advance-link:focus {
+    outline: none;
+}
+div.slideshow img {
+    border: none;
+}
+div.caption-container {
+    float: right;
+    position: relative;
+    margin-top: 30px;
+}
+span.image-caption {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+div.caption-container, span.image-caption {
+    width: 430px;
+}
+div#caption {
+    position: relative;
+    z-index: 5;
+    float: left;
+    top: 100px;
+    padding: 0px !important;
+    margin: 0 auto;
+}
+div.image-title {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+div.image-desc {
+    line-height: 1.3em;
+    padding-top: 12px;
+}
+div.download {
+    margin-top: 8px;
+}
+div.photo-index {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0 12px;
+}
+div.navigation-container {
+    float: left;
+    position: relative;
+    z-index: 5;
+    top: 384px;
+    left: 60px;
+}
+.slideshow{
+    position: relative;
+    z-index: 2;
+    float: right;
+    width: 940px;
+}
+.advance-link > img{
+    width: 890px;
+}
+div.navigation {
+    float: left;
+    position: relative;
+}
+div.navigation a.pageLink {
+    display: block;
+    position: relative;
+    float: left;
+    margin: 2px;
+    width: 16px;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+div.navigation a.pageLink:focus {
+    outline: none;
+}
+
+ul.thumbs {
+    position: relative;
+    float: left;
+    margin: 0 auto;
+    padding: 0px;
+}
+ul.thumbs li {
+    float: left;
+    padding: 0;
+    list-style: none;
+}
+a.thumb {
+    display: block;
+}
+a.thumb:focus {
+    outline: none;
+}
+ul.thumbs img {
+    border: none;
+    display: block;
+    width: 140px;
+    height: 60px;
+}
+div.pagination {
+    clear: both;
+    position: relative;
+    left: -50%;
+}
+div.pagination a, div.pagination span.current, div.pagination span.ellipsis {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 2px;
+    padding: 4px 7px 2px 7px;
+    border: 1px solid #ccc;
+}
+div.pagination a:hover {
+    text-decoration: none;
+}
+div.pagination span.current {
+    font-weight: bold;
+}
+div.pagination span.ellipsis {
+    border: none;
+    padding: 5px 0 3px 2px;
+}
+div.gallery-gutter {
+    clear: both;
+    padding-bottom: 20px;
+}
+ul.thumbs li.selected a.thumb {
+    border: 4px solid gray;
+}
+ul.thumbs li.selected a.thumb img{
+    width: 135px;
+    height: 52px;
+}
+a.prev{
+    background-image: url("../img/back_nav_slide.png");
+    background-repeat: no-repeat;
+    background-size: 49px 60px !important;
+    position: relative;
+    padding: 30px !important;
+    top: 408px;
+    right: 819px;
+}
+a.next{
+    background-image: url('../img/forw_nav_slide.png');
+    padding: 30px !important;
+    background-repeat: no-repeat;
+    background-size: 49px 60px !important;
+    position: relative;
+    top: 408px;
+    left: 11px;
+}
+a.prev:hover{
+    background-image: url('../img/back_nav_slide_hover.png');
+}
+a.next:hover{
+    background-image: url('../img/forw_nav_slide_hover.png');
+}
+.slide_bann_title{
+    font-family: DINPro-L;
+    font-size: 2em;
+    background: #2B2926;
+    color: #69CCE6;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 auto;
+    float: left;
+}
+.slide_bann_title > a{
+    font-family: DINPro-M;
+    font-style: italic;
+    color: #FFFFFF;
+}
+.slide_bann_title > .a_sub{
+    font-family: DINPro-M;
+    font-size: 0.4em;
+    color: #FFFFFF;
+}
+.slide_bann_det{
+    height: auto;
+    width: auto;
+    background: #69CCE6;
+}
+.slide_bann_det > p{
+    font-family: OS-R;
+    font-size: 1.25em;
+    margin: 0 auto;
+    padding: 15px;
+    color: #2B2926;
+}
+.slide_bann_readmore{
+    float: right;
+    height: auto;
+    width: auto;
+    background: #ED363F;
+}
+.slide_bann_readmore > a{
+    font-family: DINPro-M;
+    color: #FFFFFF;
+    padding: 5px 10px;
+    float: right;
+    text-decoration: none;
+}
+.slide_bann_readmore > a:hover{
+    text-decoration: none !important;
+}
+.download_file{
+    width: 190px;
+    height: 52px;
+    line-height: 52px;
+    border: 4px solid #969392;
+    display: inline-block;
+    position: absolute;
+    left: 695px;
+    top: 256px;
+}
+.download_file > a > p{
+    margin: 0 auto;
+    padding: 0px;
+    color: #FFFFFF;
+    font-family: DINPro-R;
+}
+.download_file > a > img{
+    float: left;
+    padding: 10px;
+    margin-right: 5px;
+    border: none;
+}
+.content_slide{
+    display: block;
+    height: 100px;
+    margin-top: -60px;
+}
